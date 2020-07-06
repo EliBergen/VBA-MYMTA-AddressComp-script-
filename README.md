@@ -1,30 +1,34 @@
 # VBA-MYMTA-AddressComp-script-
 # One-off code to parse an Excel spreadsheet from work that hides agents who haven't changed addresses
 
-Sub HideMatchingAddresses()
+Sub DeleteMatchingAddresses()
 
 Dim i As Integer
-Dim cell As Range
 
-i = 258
+i = 2
 
-For Each cell In Range("d258:d4015")
+'Range("D2").Select
 
-    dcontents = LCase(Range("D" & i).Value)
-    jcontents = LCase(Range("J" & i).Value)
-
-    pos1 = InStr(1, dcontents, " ")
-    pos2 = InStr(1, jcontents, " ")
+'Do until IsEmpty(ActiveCell)
     
-    address1 = Left(dcontents, pos1 - 1)
-    address2 = Left(jcontents, pos2 - 1)
+    'dcontents = LCase(ActiveCell.Value)
+    'jcontents = LCase(Range("J" & i).Value)
     
-    If address1 = address2 Then
-    cell.EntireRow.Hidden = True
-    End If
+    'pos1 = InStr(1, dcontents, " ")
+    'pos2 = InStr(1, jcontents, " ")
     
-    i = i + 1
-Next cell
-
+    'address1 = Left(dcontents, pos1 - 1)
+    'address2 = Left(jcontents, pos2 - 1)
+    
+    'If address1 = address2 Then
+        'ActiveCell.EntireRow.Delete
+        'Loop
+        
+     'Else
+        'ActiveCell.Offset(1, 0).Select
+        'i = i + 1
+        'Loop
+        
+     'End If
 
 End Sub
