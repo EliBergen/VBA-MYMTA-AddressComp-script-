@@ -7,28 +7,28 @@ Dim i As Integer
 
 i = 2
 
-'Range("D2").Select
+Range("D2").Select
 
-'Do until IsEmpty(ActiveCell)
+Do until IsEmpty(ActiveCell)
     
-    'dcontents = LCase(ActiveCell.Value)
-    'jcontents = LCase(Range("J" & i).Value)
+    dcontents = LCase(ActiveCell.Value)
+    jcontents = LCase(Range("J" & i).Value)
     
-    'pos1 = InStr(1, dcontents, " ")
-    'pos2 = InStr(1, jcontents, " ")
+    pos1 = InStr(1, dcontents, " ")
+    pos2 = InStr(1, jcontents, " ")
     
-    'address1 = Left(dcontents, pos1 - 1)
-    'address2 = Left(jcontents, pos2 - 1)
+    address1 = Left(dcontents, pos1 - 1)
+    address2 = Left(jcontents, pos2 - 1)
     
-    'If address1 = address2 Then
-        'ActiveCell.EntireRow.Delete
-        'Loop
+    If address1 = address2 Then
+        ActiveCell.EntireRow.Delete
         
-     'Else
-        'ActiveCell.Offset(1, 0).Select
-        'i = i + 1
-        'Loop
+    Else
+        ActiveCell.Offset(1, 0).Select
+        i = i + 1
         
-     'End If
+    End If
+
+Loop
 
 End Sub
