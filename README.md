@@ -32,3 +32,32 @@ Do until IsEmpty(ActiveCell)
 Loop
 
 End Sub
+
+#Possible Addition
+
+Sub HowManyHiddenRows()
+
+Dim i As Integer
+
+i = 0
+
+Range("D2").Select
+
+Do Until IsEmpty(ActiveCell)
+
+    
+    If ActiveCell.EntireRow.Hidden Then
+        i = i + 1
+        
+    End If
+    
+    ActiveCell.Offset(1, 0).Select
+    
+Loop
+
+MsgBox "Rows hidden: " & i
+
+End Sub
+
+
+
