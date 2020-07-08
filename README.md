@@ -9,28 +9,35 @@ Dim numDeleted As Integer
 i = 2
 numDeleted = 0
 
-Range("D2").Select
+Range("E2").Select
 
-Do until IsEmpty(ActiveCell)
-    
-    dcontents = LCase(ActiveCell.Value)
-    jcontents = LCase(Range("J" & i).Value)
-    
-    pos1 = InStr(1, dcontents, " ")
-    pos2 = InStr(1, jcontents, " ")
-    
-    address1 = Left(dcontents, pos1 - 1)
-    address2 = Left(jcontents, pos2 - 1)
-    
-    If address1 = address2 Then
-        ActiveCell.EntireRow.Delete
-        numDeleted = numDeleted + 1
-        
-    Else
+Do Until IsEmpty(ActiveCell)
+
+    If ActiveCell.Value = "NULL" Then
         ActiveCell.Offset(1, 0).Select
         i = i + 1
         
+    Else
+        econtents = LCase(ActiveCell.Value)
+        lcontents = LCase(Range("L" & i).Value)
+        
+        pos1 = InStr(1, econtents, " ")
+        pos2 = InStr(1, lcontents, " ")
+        
+        address1 = Left(econtents, pos1 - 1)
+        address2 = Left(lcontents, pos2 - 1)
+    
+        If address1 = address2 Then
+            ActiveCell.EntireRow.Delete
+            numDeleted = numDeleted + 1
+            
+        Else
+            ActiveCell.Offset(1, 0).Select
+            i = i + 1
+    
     End If
+    
+End If
 
 Loop
 
