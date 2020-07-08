@@ -4,8 +4,10 @@
 Sub DeleteMatchingAddresses()
 
 Dim i As Integer
+Dim numDeleted As Integer
 
 i = 2
+numDeleted = 0
 
 Range("D2").Select
 
@@ -22,6 +24,7 @@ Do until IsEmpty(ActiveCell)
     
     If address1 = address2 Then
         ActiveCell.EntireRow.Delete
+        numDeleted = numDeleted + 1
         
     Else
         ActiveCell.Offset(1, 0).Select
@@ -30,6 +33,8 @@ Do until IsEmpty(ActiveCell)
     End If
 
 Loop
+
+MsgBox "Rows deleted: " & numDeleted
 
 End Sub
 
